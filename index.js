@@ -62,6 +62,7 @@ function create(config) {
     var echo = opts.echo;
     var masked = 'echo' in opts;
     autocomplete = opts.autocomplete || autocomplete;
+    submitOnCharacter = opts.submitOnCharacter || submitOnCharacter;
 
     var fd = (process.platform === 'win32') ?
       process.stdin.fd :
