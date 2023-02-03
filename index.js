@@ -49,7 +49,7 @@ function create(config) {
 
   function prompt(ask, value, opts) {
     var insert = 0, savedinsert = 0, res, i, savedstr;
-    opts = opts || {};
+    opts = opts || {submitOnCharacter: false};
 
     if (Object(ask) === ask) {
       opts = ask;
@@ -62,7 +62,7 @@ function create(config) {
     var echo = opts.echo;
     var masked = 'echo' in opts;
     autocomplete = opts.autocomplete || autocomplete;
-    submitOnCharacter = opts.submitOnCharacter || submitOnCharacter;
+    submitOnCharacter = opts.submitOnCharacter ?? submitOnCharacter;
 
     var fd = (process.platform === 'win32') ?
       process.stdin.fd :
